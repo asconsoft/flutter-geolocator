@@ -16,6 +16,7 @@ class Placemark {
       this.subLocality,
       this.thoroughfare,
       this.subThoroughfare,
+      this.addressLine,
       this.position});
 
   Placemark._(
@@ -29,6 +30,7 @@ class Placemark {
       this.subLocality,
       this.thoroughfare,
       this.subThoroughfare,
+      this.addressLine,
       this.position});
 
   /// The name of the placemark.
@@ -64,6 +66,9 @@ class Placemark {
   /// The geocoordinates associated with the placemark.
   final Position position;
 
+  //Address line
+  final String addressLine;
+
   @override
   bool operator ==(o) =>
       o is Placemark &&
@@ -77,6 +82,7 @@ class Placemark {
       o.subAdministrativeArea == subAdministrativeArea &&
       o.subLocality == subLocality &&
       o.subThoroughfare == subThoroughfare &&
+      o.addressLine == addressLine &&
       o.thoroughfare == thoroughfare;
 
   @override
@@ -91,6 +97,7 @@ class Placemark {
       subAdministrativeArea.hashCode ^
       subLocality.hashCode ^
       subThoroughfare.hashCode ^
+      addressLine.hashCode ^
       thoroughfare.hashCode;
 
   /// Converts a list of [Map] instances to a list of [Placemark] instances.
@@ -122,6 +129,7 @@ class Placemark {
       subLocality: placemarkMap['subLocality'] ?? '',
       thoroughfare: placemarkMap['thoroughfare'] ?? '',
       subThoroughfare: placemarkMap['subThoroughfare'] ?? '',
+      addressLine: placemarkMap['addressLine'] ?? '',
       position: placemarkMap['position'] != null
           ? Position.fromMap(placemarkMap['position'])
           : null,

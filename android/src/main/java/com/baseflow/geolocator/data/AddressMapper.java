@@ -33,7 +33,7 @@ public class AddressMapper {
     placemark.put("subAdministrativeArea", address.getSubAdminArea());
     placemark.put("locality", address.getLocality());
     placemark.put("subLocality", address.getSubLocality());
-
+    placemark.put("addressLine", address.getAddressLine(0));
     if (address.hasLatitude() && address.hasLongitude()) {
       Map<String, Double> positionMap = new HashMap<>();
 
